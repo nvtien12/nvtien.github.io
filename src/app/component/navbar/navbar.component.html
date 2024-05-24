@@ -1,0 +1,58 @@
+<mat-toolbar color="primary" class="drop-shadow">
+    <span class="fill-remaining-space">
+        <button mat-icon-button [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger"
+            (mouseover)="menuTrigger.openMenu()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" [overlapTrigger]="false">
+            <span (mouseleave)="menuTrigger.closeMenu()">
+                <button mat-menu-item>
+                    <a href="#home" style="text-decoration: none;">
+                        <mat-icon>home</mat-icon>
+                        <span>Home</span>
+                    </a>
+                </button>
+                <button mat-menu-item>
+                    <a href="#about" style="text-decoration: none;">
+                        <mat-icon>people</mat-icon>
+                        <span>About Me</span>
+                    </a>
+                </button>
+                <button mat-menu-item>
+                    <a href="#edu" style="text-decoration: none;">
+                        <mat-icon>school</mat-icon>
+                        <span>Education</span>
+                    </a>
+                </button>
+                <button mat-menu-item>
+                    <a href="#news" style="text-decoration: none;">
+                        <mat-icon>feed</mat-icon>
+                        <span>News</span>
+                    </a>
+                </button>
+                <button mat-menu-item>
+                    <a href="#works" style="text-decoration: none;">
+                        <mat-icon>work</mat-icon>
+                        <span>Works</span>
+                    </a>
+                </button>
+            </span>
+        </mat-menu>
+    </span>
+    <span class="fill-remaining-space" routerLink="/" style="cursor: pointer;">
+        <img src="assets/logo.png" alt="" width="30" height="30">
+        Blog Tiennv
+    </span>
+    <span class="example-spacer"></span>
+    <div class="d-flex">
+        <button mat-flat-button color="primary">
+            <a href="#contact" style="text-decoration: none; color: white;">
+                Contact
+            </a>
+        </button>
+        <div *ngIf="isLoggedIn$ | async">
+            <button mat-flat-button color="primary" (click)="onLogOut()" style="margin-left: 0.5rem;"> Logout </button>
+        </div>
+
+    </div>
+</mat-toolbar>
